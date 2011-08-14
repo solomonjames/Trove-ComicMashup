@@ -1,5 +1,33 @@
 @CHARSET "UTF-8";
 
+body {
+    background: #CCCCCC;
+}
+
+#wrapper {
+    width: 960px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+#header {
+    text-align: center;
+}
+
+#content {
+    text-align: center;
+}
+
 .logo {
+    font-size: 500%;
     font-family: 'Lobster Two', cursive;
+    margin: 0;
+}
+
+.slogan {
+    font-family: "Trebucet MS";
+}
+
+button {
+    letter-spacing: 1px;
 }
