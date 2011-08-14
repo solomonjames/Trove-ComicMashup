@@ -1,12 +1,34 @@
 <?php
 
 require_once dirname(__FILE__) . "/config/boot.php";
+$max = 49;
+mt_srand(time());
+
+$one = mt_rand(0, $max);
+$two = mt_rand(0, $max);
+$three = mt_rand(0, $max);
+
+if($one==$two) {
+	$two += 1;
+}
+if($one==$three) {
+	$three += 1;
+}
+
+if($three==$two) {
+	$two += 1;
+}
+
+
+$trove = new Trove();
+$trove_images = json_decode($trove->get('/v2/content/photos/', array('count'=>$max)), true);
 
 $images = array();
-$images[] = "https://fbcdn-sphotos-a.akamaihd.net/photos-ak-ash1/v107/180/108/5114964/n5114964_35467730_3958.jpg";
-$images[] = "https://fbcdn-sphotos-a.akamaihd.net/photos-ak-ash1/v119/180/108/5114964/n5114964_35733244_5112.jpg";
-$images[] = "https://fbcdn-sphotos-a.akamaihd.net/hphotos-ak-ash4/222349_10100354940593052_5114964_56609009_5185551_n.jpg";
+$images[] = $trove_images['results'][$one]['urls']['original'];
+$images[] = $trove_images['results'][$two]['urls']['original'];
+$images[] = $trove_images['results'][$three]['urls']['original'];
 
+$_SESSION['loaded_images'] = null;
 foreach ($images as $image) {
     if (!isset($_SESSION['loaded_images'][md5($image)])) {
         $_SESSION['loaded_images'][md5($image)] = Aj_Aviary_ImageTransform::getComic($image);

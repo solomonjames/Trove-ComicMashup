@@ -229,7 +229,6 @@ class OAuthUtil
 		//build un-hashed signature
 		$signature = "{$this->clean($type)}&{$this->clean($url)}&{$this->clean($query)}"; //eg. GET&http%3A%2F%2Fphotos.example.net%2F
 
-		var_dump("BASE STRING:" . $signature);
 		if($params['oauth_signature_method'] == 'HMAC-SHA1')
 		{
 			$hmac_key = "{$this->clean($this->consumerSecret)}&";

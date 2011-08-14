@@ -23,4 +23,10 @@ class Trove {
 		$params = self::$oauth->buildRequest("POST", $url, $params);
 		return CurlUtil::post($url, $params, array(CURLOPT_SSL_VERIFYPEER=>false));
 	}
+	
+	function get($url, $params = array()) {
+		$url = self::$root_url . $url;
+		$params = self::$oauth->buildRequest("GET", $url, $params);
+		return CurlUtil::get($url, $params, array(CURLOPT_SSL_VERIFYPEER=>false));
+	}	
 }

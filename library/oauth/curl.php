@@ -67,8 +67,7 @@ class CurlUtil
 			if(strstr($url, '?')) $url .= '&' . http_build_query($params);
 			else $url .= '?' . http_build_query($params);
 		}
-		
-		
+
 		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_URL, $url);
 		
