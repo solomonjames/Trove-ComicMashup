@@ -35,12 +35,12 @@ foreach ($images as $image) {
     	$img = Aj_Aviary_ImageTransform::getComic($image);
 	}
     file_put_contents(BP . '/imgs/' . $img_name,CurlUtil::get($img));
-    $loaded_images[] = '/imgs/' . $img_name;
+    $loaded_images[] = BP . '/imgs/' . $img_name;
     
 }
 
+$imgUrl = Aj_Image::createComicStrip($loaded_images);
+
 ?>
 
-<?php foreach ($loaded_images as $imgUrl):?>
-<img src="<?php echo $imgUrl?>" />
-<?php endforeach;?>
+<img id="comicImage" src="<?php echo $imgUrl?>" />

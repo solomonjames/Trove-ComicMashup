@@ -27,6 +27,8 @@ require_once dirname(__FILE__) . "/config/boot.php";
             </div>
             
             <div id="content">
+                <img id="ajaxLoader" src="/ajax-loader.gif" style="display:none;"/>
+                
                 <div id="comic"></div>
                 
                 <button id="getRandom" onClick="return App.getRandom();" type="button">Random</button>

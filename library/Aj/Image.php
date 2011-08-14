@@ -8,7 +8,7 @@ class Aj_Image
         $s_x    = 0;
         
         for ($i = 0; $i < 3; $i++) {
-            $contents = imagecreatefromjpeg($images[$i]);
+            $contents = imagecreatefrompng($images[$i]);
             
             imagecopy($output, $contents, $s_x, 0, 0, 0, 300, 400);
             
