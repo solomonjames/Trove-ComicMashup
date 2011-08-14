@@ -2,7 +2,7 @@
 class Trove {
 	
 	private static $oauth;
-	
+	private static $root_url = 'https://api.yourtrove.com';
 	function __construct() {
 		$config = array('public'=>'LY24jV9ttnx7cLdd',
 					'private'=>'rddmhEuFYzrWDaym',
@@ -19,6 +19,7 @@ class Trove {
 	}
 	
 	function post($url, $params = array()) {
+		$url = self::$root_url . $url;
 		$params = self::$oauth->buildRequest("POST", $url, $params);
 		return CurlUtil::post($url, $params, array(CURLOPT_SSL_VERIFYPEER=>false));
 	}
