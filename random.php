@@ -29,12 +29,16 @@ $images[] = $trove_images['results'][$two]['urls']['original'];
 $images[] = $trove_images['results'][$three]['urls']['original'];
 
 foreach ($images as $image) {
-    if (!isset($_SESSION['loaded_images'][md5($image)])) {
-        $_SESSION['loaded_images'][md5($image)] = Aj_Aviary_ImageTransform::getComic($image);
-    }
+	$img_name = md5($image) . '.png';
+	
+	if(!file_exists(BP . '/ims/' . $img_name)) {
+    	$img = Aj_Aviary_ImageTransform::getComic($image);
+	}
+    file_put_contents(BP . '/imgs/' . $img_name,CurlUtil::get($img));
+    $loaded_images[] = '/imgs/' . $img_name;
+    
 }
 
-$loaded_images = isset($_SESSION['loaded_images']) && !empty($_SESSION['loaded_images']) ? $_SESSION['loaded_images'] : array();
 ?>
 
 <?php foreach ($loaded_images as $imgUrl):?>
