@@ -1,3 +1,36 @@
+ <script type="text/javascript"> 
+    var _featherLoaded = false; 
+     
+    Feather_APIKey = '8b863931d'; 
+    Feather_Theme = 'bluesky'; 
+    Feather_EditOptions = 'stickers,text'; 
+    Feather_OpenType = 'float'; 
+    Feather_CropSizes = '320x240,640x480,800x600,1280x1024'; 
+    Feather_Stickers = [ 
+[ 'http://www.brianstoys.com/store/images/products/Star%20Wars/MasterReplica/FXSaber/MasterReplica_YodaFX.gif', 'http://www.aviary.com/images/feather/sticker/bandaid_01.png' ]];
+      
+    Feather_OnSave = function(id, url) { 
+        var e = document.getElementById(id); 
+        e.src = url; 
+        aviaryeditor_close(); 
+    } 
+     
+    Feather_OnLoad = function() { 
+        _featherLoaded = true; 
+    } 
+     
+    function launchEditor(imageid) { 
+        if (_featherLoaded) { 
+            var src = document.getElementById(imageid).src; 
+            aviaryeditor(imageid, src); 
+        } 
+    }
+
+    
+</script> 
+<script type="text/javascript" src="http://feather.aviary.com/js/feather.js"></script>  
+ 
+<!-- End Generated Code -- Don't Copy Below This Line --> 
 <?php
 
 require_once dirname(__FILE__) . "/config/boot.php";
@@ -43,4 +76,4 @@ $imgUrl = Aj_Image::createComicStrip($loaded_images);
 
 ?>
 
-<img id="comicImage" src="<?php echo $imgUrl?>" />
+<img onclick="launchEditor('comicImage')" id="comicImage" src="<?php echo $imgUrl?>" />
