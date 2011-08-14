@@ -23,3 +23,6 @@ Zend_Loader_Autoloader::getInstance()->registerNamespace("Aviary");
 Aj_Setup::session();
 
 Zend_Registry::set("config", new Zend_Config_Ini(dirname(__FILE__) . "/application.ini"));
+require('oauth/oauth.php');
+require('trove/trove.php');
+$_SESSION['user'] = array();

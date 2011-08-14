@@ -28,7 +28,6 @@ $images[] = $trove_images['results'][$one]['urls']['original'];
 $images[] = $trove_images['results'][$two]['urls']['original'];
 $images[] = $trove_images['results'][$three]['urls']['original'];
 
-$_SESSION['loaded_images'] = null;
 foreach ($images as $image) {
     if (!isset($_SESSION['loaded_images'][md5($image)])) {
         $_SESSION['loaded_images'][md5($image)] = Aj_Aviary_ImageTransform::getComic($image);
