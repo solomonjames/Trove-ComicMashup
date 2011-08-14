@@ -16,14 +16,10 @@ class Trove {
 		
 		self::$oauth->token("d7yCY9Ddy5XfakUj");
 		self::$oauth->tokenSecret("B7teRsxAXWJQrSsV");
-		
-		$params = $oauth->buildRequest("POST", 'https://api.yourtrove.com/v2/user/');
-
-		$post_data = CurlUtil::post('https://api.yourtrove.com/v2/user/', $params, array(CURLOPT_SSL_VERIFYPEER=>false));
 	}
 	
-	function post($url, $params) {
-		$params = $oauth->buildRequest("POST", $url);
-		$post_data = CurlUtil::post($url, $params, array(CURLOPT_SSL_VERIFYPEER=>false));
+	function post($url, $params = array()) {
+		$params = self::$oauth->buildRequest("POST", $url, $params);
+		return CurlUtil::post($url, $params, array(CURLOPT_SSL_VERIFYPEER=>false));
 	}
 }
