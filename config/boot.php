@@ -1,5 +1,4 @@
 <?php
-
 // Define application environment
 defined('AE') || define('AE', (getenv('AE') ? getenv('AE') : 'development'));
 

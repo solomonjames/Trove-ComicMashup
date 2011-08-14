@@ -1,0 +1,1 @@
+POST&https%3A%2F%2Fapi.yourtrove.com%2Fv2%2Fuser%2F&oauth_consumer_key%3DLY24jV9ttnx7cLdd%26oauth_nonce%3Db189d16295af7763004a510f5879ea12d9938f1d%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1313353505%26oauth_token%3Dd7yCY9Ddy5XfakUj%26oauth_version%3D1.0%26realm%3Dphotos
