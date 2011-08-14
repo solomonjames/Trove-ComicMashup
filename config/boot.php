@@ -17,6 +17,7 @@ date_default_timezone_set('America/New_York');
 // Setup autoloader
 require_once 'Zend/Loader/Autoloader.php';
 Zend_Loader_Autoloader::getInstance()->registerNamespace("Aj");
+Zend_Loader_Autoloader::getInstance()->registerNamespace("Aviary");
 
 // Session Init
 Aj_Setup::session();

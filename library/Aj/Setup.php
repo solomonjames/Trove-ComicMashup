@@ -7,7 +7,7 @@ class Aj_Setup
         Zend_Session::setOptions(array(
             'cookie_lifetime' => 0,
             'cookie_path'     => "/",
-            'cookie_domain'   => ".sellmoo.com",
+            //'cookie_domain'   => ".dashron.com",
             'cookie_secure'   => false,
             'cookie_httponly' => true
         ));
